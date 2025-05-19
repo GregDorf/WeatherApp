@@ -23,11 +23,9 @@ fun CitySearchDropdown(
     selectedCity: String,
     onCitySelected: (String) -> Unit
 ) {
-    var query by remember { mutableStateOf(TextFieldValue("")) } // Изначально пустое поле
+    var query by remember { mutableStateOf(TextFieldValue("")) }
     val focusManager = LocalFocusManager.current
     var showSuggestions by remember { mutableStateOf(false) }
-
-    // Не используем selectedCity для инициализации query, поле остается пустым при запуске
 
     val filteredCities = remember(query.text, cities) {
         if (query.text.isBlank()) emptyList()
@@ -45,7 +43,7 @@ fun CitySearchDropdown(
             },
             modifier = Modifier
                 .fillMaxWidth(),
-            placeholder = { Text("Введите город") }, // Плейсхолдер
+            placeholder = { Text("Введите город") },
             singleLine = true,
             trailingIcon = {
                 Icon(imageVector = Icons.Default.Search, contentDescription = "Поиск")

@@ -58,7 +58,6 @@ fun WeatherForecast(weatherResponse: WeatherResponse) {
             else -> "unknown"
         }
 
-        // Просто имя + @4x.png без -day/-night
         val fileName = "$baseIconName@4x.png"
         return baseUrl + fileName
     }
